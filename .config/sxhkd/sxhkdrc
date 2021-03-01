@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	alacritty
+	st
 
 # program launcher
 super + d
@@ -26,19 +26,15 @@ super + shift + p
 super + Escape
 	pkill -USR1 -x sxhkd
 
-# launch lf
-super + o
-	alacritty -e lf
-
-# Pulseaudio control
+# Alsa/Pipewire control
 XF86AudioRaiseVolume
-    pamixer -i 5
+        amixer -q sset Master 4%+ 
 
 XF86AudioLowerVolume
-    pamixer -d 5
+        amixer -q sset Master 4%-
 
 XF86AudioMute
-    pamixer -t
+        amixer -q sset Master toggle
 
 #
 # bspwm hotkeys

@@ -6,21 +6,22 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source ~/.config/zsh/.zsh_aliases
-source ~/.zplug/init.zsh
-source /usr/share/doc/fzf/completion.zsh
-source /usr/share/doc/fzf/key-bindings.zsh
-
-#zplug
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-autosuggestions", defer:2
-zplug "romkatv/powerlevel10k", as:theme, depth:1
-zplug "zplug/zplug", hook-build:'zplug --self-manage'
-zplug load
+source ~/.local/share/zinit/bin/zinit.zsh
 
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
+
+# plugins
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+# disable underline path zsh-syntax-highlighting
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+ZSH_HIGHLIGHT_STYLES[precommand]=none
 
 # History in cache directory:
 HISTSIZE=1000
@@ -55,11 +56,6 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Include hidden files in autocomplete:
 _comp_options+=(globdots)
-
-# disable underlines
-ZSH_HIGHLIGHT_STYLES[path]=none
-ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-ZSH_HIGHLIGHT_STYLES[precommand]=none
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char

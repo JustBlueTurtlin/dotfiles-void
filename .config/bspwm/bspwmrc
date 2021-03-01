@@ -25,4 +25,4 @@ bspc config focused_border_color  \#5E81AC
 bspc rule -a Firefox desktop='^6' follow=on
 bspc rule -a Chromium desktop='^7'
 bspc rule -a Brave-browser desktop='^7'
-
+bspc rule -a Zathura follow=on state=tiled

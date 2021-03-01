@@ -18,24 +18,24 @@ else
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/completion-nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'editorconfig/editorconfig-vim'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-endwise'
   Plug 'jiangmiao/auto-pairs'
   Plug 'ptzz/lf.vim'
-  Plug 'rbgrouleff/bclose.vim'
+  Plug 'voldikss/vim-floaterm'
   Plug 'itchyny/lightline.vim'
   Plug 'joshdick/onedark.vim'
   Plug 'arcticicestudio/nord-vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
   Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/goyo.vim'
   Plug 'ap/vim-buftabline'
-  Plug 'mattn/emmet-vim'
-  Plug 'voldikss/vim-floaterm'
   Plug 'sbdchd/neoformat'
-  Plug 'editorconfig/editorconfig-vim'
+  Plug 'vim-crystal/vim-crystal'
+  Plug 'elixir-editors/vim-elixir'
   call plug#end()
-
-  " Lightline color scheme
 
   " General Settings --------------------------
   let mapleader = ","
@@ -58,9 +58,12 @@ else
   set softtabstop=2
   set splitbelow splitright
   set backupcopy=yes
+  set scrolloff=10
   let loaded_matchparen = 1
   let g:lf_replace_netrw = 1
-  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o     " disables auto-comment
+  let g:floaterm_width = 0.7
+  let g:floaterm_height = 0.7
+  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o  " disables auto-comment
 
   " Keybindings ----------------------
   noremap <leader>w :w<cr>
@@ -72,6 +75,7 @@ else
   nnoremap Q <nop>
   let g:floaterm_keymap_toggle = '<Leader>t'
   nnoremap gd :lua vim.lsp.buf.hover()<CR>
+  noremap <leader>g :Goyo<CR>
 
   " Shortcutting split navigation, saving a keypress:
   map <C-h> <C-w>h
@@ -96,6 +100,7 @@ else
   lua require'lspconfig'.svelte.setup{on_attach=require'completion'.on_attach}
   lua require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
   lua require'lspconfig'.rls.setup{on_attach=require'completion'.on_attach}
+
   " Use <Tab> and <S-Tab> to navigate through popup menu
   inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -114,3 +119,4 @@ else
 }
 EOF
 endif
+

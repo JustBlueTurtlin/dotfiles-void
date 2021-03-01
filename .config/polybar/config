@@ -50,7 +50,7 @@ font-1 = "FiraCode Nerd Font:size=12;2"
 
 modules-left = memory cpu eth
 modules-center = bspwm
-modules-right = pulseaudio
+modules-right = alsa
 
 wm-restack = bspwm
 override-redirect = true
@@ -79,6 +79,34 @@ modules-right = date
 
 wm-restack = bspwm
 override-redirect = true
+
+[module/alsa]
+type = internal/alsa
+master-soundcard = default
+
+format-volume = <label-volume>  <bar-volume>
+label-volume = %percentage%%
+label-volume-foreground = ${colors.foreground}
+
+label-muted = 
+label-muted-foreground = ${colors.foreground}
+
+bar-volume-width = 14
+bar-volume-foreground-0 = ${colors.green}
+bar-volume-foreground-1 = ${colors.green}
+bar-volume-foreground-2 = ${colors.green}
+bar-volume-foreground-3 = ${colors.orange}
+bar-volume-foreground-4 = ${colors.orange}
+bar-volume-foreground-5 = ${colors.red}
+bar-volume-foreground-6 = ${colors.red}
+bar-volume-gradient = true
+bar-volume-indicator = 
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground}
 
 [module/bspwm]
 type = internal/bspwm
@@ -159,33 +187,6 @@ format-underline = ${colors.blue}
 
 label = %date%  %time%
 
-[module/pulseaudio]
-type = internal/pulseaudio
-
-format-volume = <label-volume>  <bar-volume>
-label-volume = %percentage%%
-label-volume-foreground = ${colors.foreground}
-
-label-muted = 
-label-muted-foreground = ${colors.foreground}
-
-bar-volume-width = 14
-bar-volume-foreground-0 = ${colors.green}
-bar-volume-foreground-1 = ${colors.green}
-bar-volume-foreground-2 = ${colors.green}
-bar-volume-foreground-3 = ${colors.orange}
-bar-volume-foreground-4 = ${colors.orange}
-bar-volume-foreground-5 = ${colors.red}
-bar-volume-foreground-6 = ${colors.red}
-bar-volume-gradient = true
-bar-volume-indicator = 
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground}
-
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
@@ -197,5 +198,3 @@ screenchange-reload = true
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-
-; vim:ft=dosini

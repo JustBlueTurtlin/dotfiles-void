@@ -1,13 +1,9 @@
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/share/cargo/bin:$PATH"
-export PATH="$HOME/.local/share/go/bin:$PATH"
-
 # Default Programs:
 export EDITOR="vim"
 export VISUAL="vim"
 export READER="zathura"
 export TERMINAL="alacritty"
-export BROWSER="chromium"
+export BROWSER="brave"
 export PAGER="less"
 
 # ~/ Clean-up:
@@ -24,8 +20,7 @@ export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export npm_config_cache="$HOME/.cache/npm-cache"
 export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME:-$HOME/.cache}"
 export VSCODE_EXTENSIONS="${XDG_DATA_HOME:-$HOME/.local/share}/vscode"
-export N_PREFIX="$HOME/.local/share/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-export MOZ_X11_EGL=1
+export N_PREFIX="$HOME/.local/share/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
 
 # fzf:
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git --exclude dist --exclude node_modules"
