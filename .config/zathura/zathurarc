@@ -1,0 +1,33 @@
+set font "Noto Sans 15"
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+set selection-clipboard clipboard
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
+
+" Colors
+set default-bg              "#282C34"
+set default-fg              "#ABB2BF"
+
+set statusbar-bg            "#282C34"
+set statusbar-fg            "#ABB2BF"
+
+set inputbar-bg             "#282C34"
+set inputbar-fg             "#ABB2BF"
+
+set notification-error-bg   "#E06C75"
+set notification-error-fg   "#141A1F"
+
+set highlight-color         "#98C379"
+set highlight-active-color  "#E5C07B"
+
+set completion-highlight-fg "#3E4451"
+set completion-highlight-bg "#528BFF"
+
